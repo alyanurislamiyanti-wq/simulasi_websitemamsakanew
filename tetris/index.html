@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris - Powerful Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Kiri -->
+        <div class="sidebar left-sidebar">
+            <div class="panel">
+                <h3>▶ HOLD</h3>
+                <div class="hold-piece">
+                    <canvas id="holdCanvas" width="120" height="120"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>📊 STATS</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Lines</span>
+                        <span id="lines" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="level" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Combo</span>
+                        <span id="combo" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Board Utama -->
+        <div class="game-wrapper">
+            <div class="score-container">
+                <div class="score-panel">
+                    <span class="score-label">SCORE</span>
+                    <span id="score" class="score-value">0</span>
+                </div>
+                <div class="high-score-panel">
+                    <span class="score-label">HIGH SCORE</span>
+                    <span id="highScore" class="score-value">0</span>
+                </div>
+            </div>
+            <div class="board-container">
+                <canvas id="boardCanvas" width="300" height="600"></canvas>
+                <div id="gameOverlay" class="game-overlay hidden">
+                    <div class="overlay-content">
+                        <h1 id="overlayTitle">GAME OVER</h1>
+                        <p id="overlayScore">Score: 0</p>
+                        <button id="restartBtn" class="btn-restart">🔄 Play Again</button>
+                    </div>
+                </div>
+            </div>
+            <div class="controls-info">
+                <div class="control-group">
+                    <span class="key">←</span><span class="key">→</span> Move
+                    <span class="key">↑</span> Rotate
+                    <span class="key">↓</span> Soft Drop
+                </div>
+                <div class="control-group">
+                    <span class="key">Space</span> Hard Drop
+                    <span class="key">C</span> Hold
+                    <span class="key">P</span> Pause
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Kanan -->
+        <div class="sidebar right-sidebar">
+            <div class="panel">
+                <h3>▶ NEXT</h3>
+                <div class="next-pieces">
+                    <canvas id="nextCanvas1" width="120" height="120"></canvas>
+                    <canvas id="nextCanvas2" width="120" height="120"></canvas>
+                    <canvas id="nextCanvas3" width="120" height="120"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>⚡ SPEED</h3>
+                <div class="speed-display">
+                    <div class="speed-bar-container">
+                        <div id="speedBar" class="speed-bar" style="width: 10%"></div>
+                    </div>
+                    <span id="speedText" class="speed-text">Normal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle container for effects -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <script src="tetris.js"></script>
+</body>
+</html>
